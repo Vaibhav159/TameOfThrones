@@ -12,7 +12,7 @@ public class TameOfThroneApplication {
 
   public static void main(String[] args) throws FileNotFoundException {
     KingdomData kingdomData = new KingdomData();
-    Map<String, Kingdom> rulers = kingdomData.generateAllRulers();
+    Map<String, Kingdom> kingdoms = kingdomData.generateAllRulers();
     KingdomsAlliances kingdomsAlliances = new KingdomsAlliances();
 
     File file = new File(args[0]);
@@ -23,14 +23,14 @@ public class TameOfThroneApplication {
       String[] sArray = s.split(" ");
       String emblem = sArray[0];
       String msg = sArray[1];
-      Kingdom kingdom = rulers.get(emblem);
+      Kingdom kingdom = kingdoms.get(emblem);
       kingdom.sendMessageToRuler(msg);
       if (kingdom.successfulAlliedRuler()) {
         kingdomsAlliances.updateAlliesList(emblem);
       }
 
     }
-    System.out.println(kingdomsAlliances.alliesForKingdom());
+    System.out.println(kingdomsAlliances.alliesWithRuler());
 
   }
 

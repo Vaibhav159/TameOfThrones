@@ -26,7 +26,7 @@ public class KingdomsAlliances {
     alliedKingdoms.add(emblem);
   }
 
-  public String alliesForKingdom() {
+  public String alliesWithRuler() {
     String ans = "NONE";
     if (currentMajority >= MINIMUM_MAJORITY_REQUIRED) {
       ans = String.join(" ", alliedKingdoms);
