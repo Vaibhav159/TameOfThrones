@@ -5,9 +5,25 @@ import java.util.Map;
 
 public class Kingdom {
 
-  private Map<String, Ruler> generateAllRulers() {
+  private Map<String, String> rulerWithAnimal = new HashMap<>();
+
+  private void getInfoOfAllRulers() {
+    rulerWithAnimal.put("SPACE", "GORILLA");
+    rulerWithAnimal.put("LAND","PANDA");
+    rulerWithAnimal.put("WATER","OCTOPUS");
+    rulerWithAnimal.put("ICE","MAMMOTH");
+    rulerWithAnimal.put("AIR","OWL");
+    rulerWithAnimal.put("FIRE","DRAGON");
+  }
+
+  public Map<String, Ruler> generateAllRulers() {
+    getInfoOfAllRulers();
     Map<String, Ruler> rulers = new HashMap<>();
-    Ruler ruler = new Ruler();
+    for (String emblem : rulerWithAnimal.keySet()) {
+      Ruler ruler = new Ruler(emblem, rulerWithAnimal.get(emblem));
+      ruler.makeCipher();
+      rulers.put(emblem, ruler);
+    }
     return rulers;
   }
 
