@@ -1,4 +1,4 @@
-package com.project.tameofthrones;
+package com.project.tameofthrones.conversions;
 
 public class Cipher {
 

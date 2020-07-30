@@ -1,4 +1,4 @@
-package com.project.tameofthrones;
+package com.project.tameofthrones.conversions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
