@@ -25,6 +25,14 @@ jar {
     }
 }
 
+ext {
+    buildId = System.currentTimeMillis()
+    junitVersion = "5.3.1"
+    junitPlatformLauncherVersion = "1.6.0"
+    mockitoVersion = "2.22.0"
+    lombokVersion = "1.18.12"
+}
+
 repositories {
     mavenCentral()
 }
@@ -34,16 +42,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.3.1"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.3.1"
-    testCompileOnly 'org.projectlombok:lombok:1.18.12'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-}
-
-ext {
-    buildId = System.currentTimeMillis()
-    junitVersion = "5.3.1"
-    junitPlatformLauncherVersion = "1.6.0"
-    mockitoVersion = "2.22.0"
-    lombokVersion = "1.18.4"
 }
 
 test {

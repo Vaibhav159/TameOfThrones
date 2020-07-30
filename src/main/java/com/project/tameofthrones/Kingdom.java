@@ -7,6 +7,7 @@ public class Kingdom {
 
   private Map<String, Ruler> generateAllRulers() {
     Map<String, Ruler> rulers = new HashMap<>();
+    Ruler ruler = new Ruler();
     return rulers;
   }
 
