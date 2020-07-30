@@ -1,6 +1,10 @@
 package com.project.tameofthrones;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,6 +20,8 @@ import java.util.Scanner;
 //    FIRE emblem - Dragon.
 
 public class TameOfThroneApplication {
+
+  public static final int MINIMUM_MAJORITY_REQUIRED = 3;
 
   private Map<String, Ruler> generateAllRulers() {
     Map<String, Ruler> rulers = new HashMap<>();
@@ -35,19 +41,35 @@ public class TameOfThroneApplication {
     return rulers;
   }
 
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
+  public static void main(String[] args) throws FileNotFoundException {
     TameOfThroneApplication t = new TameOfThroneApplication();
     Map<String, Ruler> rulers = t.generateAllRulers();
 
-    String emblem;
-    String msg;
+    int currentMajority = 0;
+    List<String> alliedRulers = new ArrayList<>();
+    alliedRulers.add("SPACE");
+
+    File file = new File(args[0]);
+    Scanner scanner = new Scanner(file);
+
     while (scanner.hasNextLine()) {
       String s = scanner.nextLine();
       String[] sArray = s.split(" ");
-      emblem = sArray[0];
-      msg = sArray[1];
-      System.out.println(t.correctMessage(rulers.get(emblem), msg));
+      String emblem = sArray[0];
+      String msg = sArray[1];
+      if (t.correctMessage(rulers.get(emblem), msg)) {
+        currentMajority++;
+        alliedRulers.add(emblem);
+      }
+
+    }
+
+    if (currentMajority >= MINIMUM_MAJORITY_REQUIRED) {
+      String ans = String.join(" ", alliedRulers);
+      System.out.println(ans);
+    }
+    else {
+      System.out.println("NONE");
     }
 
   }
