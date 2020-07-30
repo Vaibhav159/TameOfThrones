@@ -2,8 +2,6 @@ package com.project.tameofthrones;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -23,12 +21,11 @@ public class TameOfThroneApplication {
   public static final int MINIMUM_MAJORITY_REQUIRED = 3;
 
   public static void main(String[] args) throws FileNotFoundException {
+    RulerData rulerData = new RulerData();
+    Map<String, Ruler> rulers = rulerData.generateAllRulers();
     Kingdom kingdom = new Kingdom();
-    Map<String, Ruler> rulers = kingdom.generateAllRulers();
 
     int currentMajority = 0;
-    List<String> alliedRulers = new ArrayList<>();
-    alliedRulers.add("SPACE");
 
     File file = new File(args[0]);
     Scanner scanner = new Scanner(file);
@@ -42,19 +39,14 @@ public class TameOfThroneApplication {
       ruler.sendMessageToRuler(msg);
       if (ruler.successfulAlliedRuler()) {
         currentMajority++;
-        alliedRulers.add(emblem);
+        kingdom.updateAlliesList(emblem);
       }
 
     }
-
-    if (currentMajority >= MINIMUM_MAJORITY_REQUIRED) {
-      String ans = String.join(" ", alliedRulers);
-      System.out.println(ans);
-    }
-    else {
-      System.out.println("NONE");
-    }
+    System.out.println(kingdom.alliesForKingdom(currentMajority));
 
   }
+
+
 
 }

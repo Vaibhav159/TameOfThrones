@@ -1,30 +1,29 @@
 package com.project.tameofthrones;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
 public class Kingdom {
 
-  private Map<String, String> rulerWithAnimal = new HashMap<>();
+  public static final int MINIMUM_MAJORITY_REQUIRED = 3;
 
-  private void getInfoOfAllRulers() {
-    rulerWithAnimal.put("SPACE", "GORILLA");
-    rulerWithAnimal.put("LAND","PANDA");
-    rulerWithAnimal.put("WATER","OCTOPUS");
-    rulerWithAnimal.put("ICE","MAMMOTH");
-    rulerWithAnimal.put("AIR","OWL");
-    rulerWithAnimal.put("FIRE","DRAGON");
+  private List<String> alliedRulers = new ArrayList<String>() {{
+    add("SPACE");
+  }};
+
+  public void updateAlliesList(String emblem) {
+    alliedRulers.add(emblem);
   }
 
-  public Map<String, Ruler> generateAllRulers() {
-    getInfoOfAllRulers();
-    Map<String, Ruler> rulers = new HashMap<>();
-    for (String emblem : rulerWithAnimal.keySet()) {
-      Ruler ruler = new Ruler(emblem, rulerWithAnimal.get(emblem));
-      ruler.makeCipher();
-      rulers.put(emblem, ruler);
+  public String alliesForKingdom(int currentMajority) {
+    String ans = "NONE";
+    if (currentMajority >= MINIMUM_MAJORITY_REQUIRED) {
+      ans = String.join(" ", alliedRulers);
     }
-    return rulers;
+    return ans;
   }
-
 }
