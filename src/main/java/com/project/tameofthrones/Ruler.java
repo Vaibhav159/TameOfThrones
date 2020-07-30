@@ -9,6 +9,14 @@ public class Ruler {
     return emblem;
   }
 
+  public Ruler() {
+  }
+
+  public Ruler(String emblem, String animal) {
+    this.emblem = emblem;
+    this.animal = animal;
+  }
+
   public void setEmblem(String emblem) {
     this.emblem = emblem;
   }
