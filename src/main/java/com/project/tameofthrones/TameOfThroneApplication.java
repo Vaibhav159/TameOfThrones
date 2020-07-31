@@ -3,8 +3,6 @@ package com.project.tameofthrones;
 import com.project.tameofthrones.model.Kingdom;
 import com.project.tameofthrones.repositoryservices.KingdomData;
 import com.project.tameofthrones.util.KingdomsAlliances;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;

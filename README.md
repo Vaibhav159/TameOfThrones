@@ -12,11 +12,11 @@
   
 <p>
    King Shan wants to make sure his secret message is not found by his enemies easily. So he decides to use the oldest of the
-   ciphers 'Seasar cipher’. A cipher is a type of secret code, where you swap the letters around so that no-one can read your
+   ciphers 'Seasar cipherImpl’. A cipherImpl is a type of secret code, where you swap the letters around so that no-one can read your
    message.</p>
  
 <p>To make the secret message encrypted, King Shan uses a secret key, which is the number of characters in the emblem.
-If King Shan wants to send a message to kingdom Air, he uses the number 3 as the cipher key, as emblem ‘owl’ has 3
+If King Shan wants to send a message to kingdom Air, he uses the number 3 as the cipherImpl key, as emblem ‘owl’ has 3
 characters. So, to encrypt the letter ‘a’, just move 3 letters clockwise on the message wheel, which will give the letter ‘d’.
 </p>
 

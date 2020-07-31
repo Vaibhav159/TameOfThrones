@@ -3,7 +3,7 @@ package com.project.tameofthrones.model;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 
-import com.project.tameofthrones.conversions.Cipher;
+import com.project.tameofthrones.conversions.CipherImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 class KingdomTest {
 
   @Mock
-  Cipher cipher;
+  CipherImpl cipherImpl;
 
   @InjectMocks
   Kingdom kingdom;
@@ -41,7 +41,7 @@ class KingdomTest {
   @Test
   void makeCipherFromAnimalName() {
 
-    Mockito.when(cipher.encodeAnimalNameToCipher(eq("ABC")))
+    Mockito.when(cipherImpl.encodeAnimalNameToCipher(eq("ABC")))
         .thenReturn(requiredCipher);
 
     kingdom.setEmblem("AIR");
@@ -57,7 +57,7 @@ class KingdomTest {
   void sendMessageToKingdom() {
 
 
-    Mockito.when(cipher.generateCipherFromMessage(eq("DEF")))
+    Mockito.when(cipherImpl.generateCipherFromMessage(eq("DEF")))
         .thenReturn(translatedMessage);
 
     kingdom.sendMessageToKingdom("DEF");
@@ -69,13 +69,13 @@ class KingdomTest {
   @Test
   void isKingdomAlliedToRuler() {
 
-    Mockito.when(cipher.encodeAnimalNameToCipher(eq("ABC")))
+    Mockito.when(cipherImpl.encodeAnimalNameToCipher(eq("ABC")))
         .thenReturn(requiredCipher);
 
-    Mockito.when(cipher.generateCipherFromMessage(eq("DEF")))
+    Mockito.when(cipherImpl.generateCipherFromMessage(eq("DEF")))
         .thenReturn(translatedMessage);
 
-    Mockito.when(cipher.matchCipher(eq(requiredCipher), eq(translatedMessage)))
+    Mockito.when(cipherImpl.matchCipher(eq(requiredCipher), eq(translatedMessage)))
         .thenReturn(Boolean.TRUE);
 
     kingdom.setAnimal("ABC");

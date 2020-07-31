@@ -1,6 +1,7 @@
 package com.project.tameofthrones.model;
 
 import com.project.tameofthrones.conversions.Cipher;
+import com.project.tameofthrones.conversions.CipherImpl;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +24,7 @@ public class Kingdom {
   @Getter
   private int[] translatedMessage;
 
-  private Cipher cipher = new Cipher();
+  private Cipher cipher = new CipherImpl();
 
   public Kingdom(String emblem, String animal) {
     this.emblem = emblem;
