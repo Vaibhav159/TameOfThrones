@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.project.tameofthrones.TameOfThroneApplicationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-07-30T20:00:53" hostname="vaibhav-PC" time="0.011">
+<testsuite name="com.project.tameofthrones.TameOfThroneApplicationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-07-31T10:13:22" hostname="vaibhav-PC" time="0.015">
   <properties/>
-  <testcase name="testForNoAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.009"/>
+  <testcase name="testForNoAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.012"/>
   <testcase name="testForAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

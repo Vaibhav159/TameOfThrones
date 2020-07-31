@@ -14,7 +14,7 @@ public class KingdomData {
     Map<String, Kingdom> rulers = new HashMap<>();
     for (String emblem : kingdomWithAnimal.keySet()) {
       Kingdom kingdom = new Kingdom(emblem, kingdomWithAnimal.get(emblem));
-      kingdom.makeCipher();
+      kingdom.makeCipherFromAnimalName();
       rulers.put(emblem, kingdom);
     }
     return rulers;

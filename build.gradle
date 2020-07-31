@@ -38,10 +38,11 @@ repositories {
 }
 //Add your dependencies here
 dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.3.1"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.3.1"
+    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombokVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.ext.junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$rootProject.ext.junitVersion"
+    testImplementation("org.mockito:mockito-junit-jupiter:$rootProject.ext.mockitoVersion")
 }
 
 test {

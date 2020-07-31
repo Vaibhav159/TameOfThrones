@@ -4,7 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,18 +32,17 @@ class TameOfThroneApplicationTest {
   }
 
   @Test
-  public void testForNoAlliedRulers() throws FileNotFoundException {
-
-    String path1 = "/home/vaibhav/workspace/TameOfThrones/src/main/resources/input1.txt";
+  public void testForNoAlliedRulers() throws IOException {
+    String path1 = "src/test/resources/input1.txt";
     TameOfThroneApplication.main(new String[]{path1});
     assertEquals("NONE\n", outContent.toString());
   }
 
 
   @Test
-  public void testForAlliedRulers() throws FileNotFoundException {
+  public void testForAlliedRulers() throws IOException {
 
-    String path1 = "/home/vaibhav/workspace/TameOfThrones/src/main/resources/input.txt";
+    String path1 = "src/test/resources/input.txt";
     TameOfThroneApplication.main(new String[]{path1});
     assertEquals("SPACE AIR LAND ICE\n", outContent.toString());
   }

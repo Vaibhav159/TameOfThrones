@@ -2,7 +2,7 @@ package com.project.tameofthrones.conversions;
 
 public class Cipher {
 
-  public int[] generateCipher(String word) {
+  public int[] generateCipherFromMessage(String word) {
     int[] requiredCipher = new int[26];
     for (int i = 0; i < word.length(); i++) {
       requiredCipher[word.charAt(i) - 'A']++;
@@ -10,13 +10,13 @@ public class Cipher {
     return requiredCipher;
   }
 
-  public int[] decodeCipher(String word) {
+  public int[] encodeAnimalNameToCipher(String word) {
     int shift = word.length();
-    int[] decodedCipher = new int[26];
+    int[] encodedCipher = new int[26];
     for (int i = 0; i < word.length(); i++) {
-      decodedCipher[((word.charAt(i) - 'A') + shift) % 26]++;
+      encodedCipher[((word.charAt(i) - 'A') + shift) % 26]++;
     }
-    return decodedCipher;
+    return encodedCipher;
   }
 
   public Boolean matchCipher(int[] requiredCipher, int[] cipherToBeMatched) {

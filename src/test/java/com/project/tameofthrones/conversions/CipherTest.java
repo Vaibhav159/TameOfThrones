@@ -16,7 +16,7 @@ class CipherTest {
   void generateCipher() {
     msg1 = "ROZO";
     Cipher cipher = new Cipher();
-    int[] cipherReceived = cipher.generateCipher(msg1);
+    int[] cipherReceived = cipher.generateCipherFromMessage(msg1);
     assertEquals(1, cipherReceived[17]);
     assertEquals(2, cipherReceived[14]);
     assertEquals(1, cipherReceived[25]);
@@ -26,7 +26,7 @@ class CipherTest {
   void decodeCipher() {
     animal = "OWL";
     Cipher cipher = new Cipher();
-    int[] cipherReceived = cipher.decodeCipher(animal);
+    int[] cipherReceived = cipher.encodeAnimalNameToCipher(animal);
     assertEquals(1, cipherReceived[17]);
     assertEquals(1, cipherReceived[14]);
     assertEquals(1, cipherReceived[25]);
@@ -37,8 +37,8 @@ class CipherTest {
     msg1 = "ROZO";
     animal = "OWL";
     Cipher cipher = new Cipher();
-    int[] cipherRequired = cipher.decodeCipher(animal);
-    int[] cipherToBeMatched = cipher.generateCipher(msg1);
+    int[] cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    int[] cipherToBeMatched = cipher.generateCipherFromMessage(msg1);
     assertTrue(cipher.matchCipher(cipherRequired, cipherToBeMatched));
   }
 
@@ -47,8 +47,8 @@ class CipherTest {
     animal = "OWL";
     msg2 = "OWLAOWLBOWLC";
     Cipher cipher = new Cipher();
-    int[] cipherRequired = cipher.decodeCipher(animal);
-    int[] cipherToBeMatched = cipher.generateCipher(msg2);
+    int[] cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    int[] cipherToBeMatched = cipher.generateCipherFromMessage(msg2);
     assertFalse(cipher.matchCipher(cipherRequired, cipherToBeMatched));
   }
 }
