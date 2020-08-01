@@ -1,7 +1,10 @@
 package com.project.tameofthrones.util;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +24,7 @@ public class KingdomsAlliances {
   public static final int MINIMUM_MAJORITY_REQUIRED = 3;
 
   @Setter(AccessLevel.NONE)
-  private List<String> alliedKingdoms = new ArrayList<String>() {{
+  private Set<String> alliedKingdoms = new LinkedHashSet<String>() {{
       add("SPACE");
     }
   };
@@ -38,8 +41,10 @@ public class KingdomsAlliances {
    * @param emblem the emblem
    */
   public void updateAlliesList(String emblem) {
-    currentMajority++;
-    alliedKingdoms.add(emblem);
+    if (!alliedKingdoms.contains(emblem)) {
+      currentMajority++;
+      alliedKingdoms.add(emblem);
+    }
   }
 
   /**

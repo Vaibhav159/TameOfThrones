@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.project.tameofthrones.TameOfThroneApplicationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-01T16:42:33" hostname="vaibhav-PC" time="0.014">
+<testsuite name="com.project.tameofthrones.TameOfThroneApplicationTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-08-01T17:03:57" hostname="vaibhav-PC" time="0.014">
   <properties/>
-  <testcase name="testForNoAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.01"/>
-  <testcase name="testForAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.002"/>
+  <testcase name="testForNoAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.008"/>
+  <testcase name="testForAlliedRulers()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.001"/>
   <testcase name="testForFileNotFound()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.001"/>
+  <testcase name="testForDuplicates()" classname="com.project.tameofthrones.TameOfThroneApplicationTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

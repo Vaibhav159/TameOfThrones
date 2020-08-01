@@ -51,4 +51,12 @@ class TameOfThroneApplicationTest {
     assertThrows(Exception.class,
         () -> TameOfThroneApplication.main(new String[]{path3}));
   }
+
+  @Test
+  public void testForDuplicates() throws IOException {
+
+    String path2 = "src/test/resources/input2.txt";
+    TameOfThroneApplication.main(new String[]{path2});
+    assertEquals("NONE\n", outContent.toString());
+  }
 }
