@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.project.tameofthrones.repository.KingdomRepositoryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-08-01T11:51:06" hostname="vaibhav-PC" time="0.019">
+<testsuite name="com.project.tameofthrones.repository.KingdomRepositoryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-08-01T16:42:33" hostname="vaibhav-PC" time="0.007">
   <properties/>
-  <testcase name="removeNonExistingKingdom()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.004"/>
-  <testcase name="updateRulerForNonExistingRuler()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
-  <testcase name="getRulersWithAnimal()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
-  <testcase name="removeExistingKingdom()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
-  <testcase name="updateRulerForExistingRuler()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.002"/>
-  <testcase name="addKingdom()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
+  <testcase name="addKingdomTest()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
+  <testcase name="updateRulerForExistingKingdomTest()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.0"/>
+  <testcase name="updateRulerForNonExistingKingdomTest()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
+  <testcase name="removeNonExistingKingdomTest()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
+  <testcase name="removeExistingKingdomTest()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
+  <testcase name="getKingdomsWithAnimalTest()" classname="com.project.tameofthrones.repository.KingdomRepositoryTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

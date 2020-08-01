@@ -1,9 +1,6 @@
 package com.project.tameofthrones.repositoryservices;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.project.tameofthrones.model.Kingdom;
 import com.project.tameofthrones.repository.KingdomRepository;
@@ -35,6 +32,8 @@ class KingdomDataTest {
   @BeforeEach
   public void init() {
     MockitoAnnotations.initMocks(this);
+    Mockito.when(kingdomRepository.getRulersWithAnimal())
+        .thenReturn(kingdomWithAnimal);
   }
 
   @Test
@@ -42,9 +41,6 @@ class KingdomDataTest {
     String kingdom = "SPACE";
     String animal = "GORILLA";
     kingdomWithAnimal.put(kingdom, animal);
-
-    Mockito.when(kingdomRepository.getRulersWithAnimal())
-        .thenReturn(kingdomWithAnimal);
 
     Map<String, Kingdom> allKingdoms = kingdomData.generateAllRulers();
     assertEquals(1, allKingdoms.size());
@@ -66,11 +62,14 @@ class KingdomDataTest {
     kingdomWithAnimal.put("AIR", "OWL");
     kingdomWithAnimal.put("FIRE", "DRAGON");
 
-    Mockito.when(kingdomRepository.getRulersWithAnimal())
-        .thenReturn(kingdomWithAnimal);
-
     Map<String, Kingdom> allKingdoms = kingdomData.generateAllRulers();
     assertEquals(6, allKingdoms.size());
+  }
+
+  @Test
+  void testForNoKingdom() {
+    Map<String, Kingdom> allKingdoms = kingdomData.generateAllRulers();
+    assertEquals(0, allKingdoms.size());
   }
 
 }

@@ -1,12 +1,28 @@
 package com.project.tameofthrones.conversions;
 
+/**
+ * The type Cipher.
+ */
 public class CipherImpl implements Cipher {
 
-  @Override
-  public int[] generateCipherFromMessage(String message) {
-    int[] requiredCipher = new int[26];
+  //Keeps only Upper case Letters From message
+  private String removeSpecialCharacter(String message) {
+    String filteredMessage = "";
     for (int i = 0; i < message.length(); i++) {
-      requiredCipher[message.charAt(i) - 'A']++;
+      char c = message.charAt(i);
+      if (Character.isUpperCase(c)) {
+        filteredMessage += c;
+      }
+    }
+    return filteredMessage;
+  }
+
+  @Override
+  public int[] decodeMessage(String message) {
+    String filteredMessage = removeSpecialCharacter(message);
+    int[] requiredCipher = new int[26];
+    for (int i = 0; i < filteredMessage.length(); i++) {
+      requiredCipher[filteredMessage.charAt(i) - 'A']++;
     }
     return requiredCipher;
   }

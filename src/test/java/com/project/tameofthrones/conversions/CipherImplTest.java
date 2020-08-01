@@ -11,44 +11,73 @@ class CipherImplTest {
   String animal;
   String msg1;
   String msg2;
+  int[] cipherReceived;
+  int[] cipherRequired;
+  int[] cipherToBeMatched;
+
+  Cipher cipher = new CipherImpl();
 
   @Test
-  void generateCipher() {
+  void decodeMessageTest() {
     msg1 = "ROZO";
-    CipherImpl cipherImpl = new CipherImpl();
-    int[] cipherReceived = cipherImpl.generateCipherFromMessage(msg1);
+    cipherReceived = cipher.decodeMessage(msg1);
     assertEquals(1, cipherReceived[17]);
     assertEquals(2, cipherReceived[14]);
     assertEquals(1, cipherReceived[25]);
   }
 
   @Test
-  void decodeCipher() {
+  void encodeAnimalNameToCipherTest() {
     animal = "OWL";
-    CipherImpl cipherImpl = new CipherImpl();
-    int[] cipherReceived = cipherImpl.encodeAnimalNameToCipher(animal);
+    cipherReceived = cipher.encodeAnimalNameToCipher(animal);
     assertEquals(1, cipherReceived[17]);
     assertEquals(1, cipherReceived[14]);
     assertEquals(1, cipherReceived[25]);
   }
 
   @Test
-  void matchCipher() {
+  void matchCipherTest() {
     msg1 = "ROZO";
     animal = "OWL";
-    CipherImpl cipherImpl = new CipherImpl();
-    int[] cipherRequired = cipherImpl.encodeAnimalNameToCipher(animal);
-    int[] cipherToBeMatched = cipherImpl.generateCipherFromMessage(msg1);
-    assertTrue(cipherImpl.matchCipher(cipherRequired, cipherToBeMatched));
+    cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    cipherToBeMatched = cipher.decodeMessage(msg1);
+    assertTrue(cipher.matchCipher(cipherRequired, cipherToBeMatched));
   }
 
   @Test
-  void matchCipherFail() {
+  void matchCipherFailTest() {
     animal = "OWL";
     msg2 = "OWLAOWLBOWLC";
-    CipherImpl cipherImpl = new CipherImpl();
-    int[] cipherRequired = cipherImpl.encodeAnimalNameToCipher(animal);
-    int[] cipherToBeMatched = cipherImpl.generateCipherFromMessage(msg2);
-    assertFalse(cipherImpl.matchCipher(cipherRequired, cipherToBeMatched));
+    cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    cipherToBeMatched = cipher.decodeMessage(msg2);
+    assertFalse(cipher.matchCipher(cipherRequired, cipherToBeMatched));
   }
+
+  @Test
+  void emptyMessageTest() {
+    animal = "OWL";
+    msg2 = "";
+    cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    cipherToBeMatched = cipher.decodeMessage(msg2);
+    assertFalse(cipher.matchCipher(cipherRequired, cipherToBeMatched));
+  }
+
+  @Test
+  void messageWithSpaceTest() {
+    animal = "OWL";
+    msg2 = "O Z O R O";
+    cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    cipherToBeMatched = cipher.decodeMessage(msg2);
+    assertTrue(cipher.matchCipher(cipherRequired, cipherToBeMatched));
+  }
+
+  @Test
+  void messageWithSpecialCharacterTest() {
+    animal = "OWL";
+    msg2 = "O$O@R O";
+    cipherRequired = cipher.encodeAnimalNameToCipher(animal);
+    cipherToBeMatched = cipher.decodeMessage(msg2);
+    assertFalse(cipher.matchCipher(cipherRequired, cipherToBeMatched));
+  }
+
 }

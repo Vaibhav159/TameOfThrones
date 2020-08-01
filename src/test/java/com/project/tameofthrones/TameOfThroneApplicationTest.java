@@ -1,13 +1,11 @@
 package com.project.tameofthrones;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,7 +36,6 @@ class TameOfThroneApplicationTest {
     assertEquals("NONE\n", outContent.toString());
   }
 
-
   @Test
   public void testForAlliedRulers() throws IOException {
 
@@ -48,11 +45,10 @@ class TameOfThroneApplicationTest {
   }
 
   @Test
-  public void testForFileNotFound() throws IOException {
+  public void testForFileNotFound() {
 
     String path3 = "src/test/resources/input999.txt";
-    //TameOfThroneApplication.main(new String[]{path1});
-    Exception exception = assertThrows(Exception.class,
+    assertThrows(Exception.class,
         () -> TameOfThroneApplication.main(new String[]{path3}));
   }
 }

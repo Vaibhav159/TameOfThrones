@@ -1,6 +1,8 @@
 package com.project.tameofthrones.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.eq;
 
 import com.project.tameofthrones.conversions.CipherImpl;
@@ -57,7 +59,7 @@ class KingdomTest {
   void sendMessageToKingdom() {
 
 
-    Mockito.when(cipherImpl.generateCipherFromMessage(eq("DEF")))
+    Mockito.when(cipherImpl.decodeMessage(eq("DEF")))
         .thenReturn(translatedMessage);
 
     kingdom.sendMessageToKingdom("DEF");
@@ -72,7 +74,7 @@ class KingdomTest {
     Mockito.when(cipherImpl.encodeAnimalNameToCipher(eq("ABC")))
         .thenReturn(requiredCipher);
 
-    Mockito.when(cipherImpl.generateCipherFromMessage(eq("DEF")))
+    Mockito.when(cipherImpl.decodeMessage(eq("DEF")))
         .thenReturn(translatedMessage);
 
     Mockito.when(cipherImpl.matchCipher(eq(requiredCipher), eq(translatedMessage)))

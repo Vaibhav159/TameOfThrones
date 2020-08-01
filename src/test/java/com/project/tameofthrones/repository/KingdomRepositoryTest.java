@@ -1,6 +1,7 @@
 package com.project.tameofthrones.repository;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Map;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,7 @@ class KingdomRepositoryTest {
   KingdomRepository kingdomRepository = new KingdomRepository();
 
   @Test
-  void getRulersWithAnimal() {
+  void getKingdomsWithAnimalTest() {
     Map<String, String> kingdomWithAnimal = kingdomRepository
         .getRulersWithAnimal();
 
@@ -25,7 +26,7 @@ class KingdomRepositoryTest {
   }
 
   @Test
-  void addKingdom() {
+  void addKingdomTest() {
     String kingdom = "GALAXY";
     String animal = "LION";
     kingdomRepository.addKingdom(kingdom, animal);
@@ -34,25 +35,25 @@ class KingdomRepositoryTest {
   }
 
   @Test
-  void removeExistingKingdom() {
+  void removeExistingKingdomTest() {
     String kingdom = "SPACE";
 
     kingdomRepository.removeKingdom(kingdom);
-    assertEquals(null,
-        kingdomRepository.getRulersWithAnimal().get(kingdom));
+    assertNull(kingdomRepository.getRulersWithAnimal()
+        .get(kingdom));
   }
 
   @Test
-  void removeNonExistingKingdom() {
+  void removeNonExistingKingdomTest() {
     String kingdom = "Lava";
 
     kingdomRepository.removeKingdom(kingdom);
-    assertEquals(null,
-        kingdomRepository.getRulersWithAnimal().get(kingdom));
+    assertNull(kingdomRepository.getRulersWithAnimal()
+        .get(kingdom));
   }
 
   @Test
-  void updateRulerForExistingRuler() {
+  void updateRulerForExistingKingdomTest() {
     String kingdom = "AIR";
     String animal = "BAT";
 
@@ -62,14 +63,14 @@ class KingdomRepositoryTest {
   }
 
   @Test
-  void updateRulerForNonExistingRuler() {
+  void updateRulerForNonExistingKingdomTest() {
     String kingdom = "LAVA";
     String animal = "BAT";
 
     kingdomRepository.updateKingdom(kingdom, animal);
 
-    assertEquals(null,
-        kingdomRepository.getRulersWithAnimal().get(kingdom));
+    assertNull(kingdomRepository.getRulersWithAnimal()
+        .get(kingdom));
   }
 
 

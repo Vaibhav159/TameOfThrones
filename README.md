@@ -1,4 +1,4 @@
-# **Finding Alliance Problem**
+# **A Golden Crown**
 
 
 ### **Context**
@@ -6,6 +6,7 @@
    wants to rule all Six Kingdoms in the universe of Southeros. He needs the support of 3 more kingdoms to be the ruler.</p>
    
 ### **Problem Statement**
+![Map Of Southeros](src/main/resources/southeros.png)
 <p>Once he wins 3 more kingdoms, he is the ruler! The secret message needs to contain the letters of the animal in their emblem.
    For example, secret message to the Land kingdom (emblem: Panda) needs to have the letter 'p','n','d' at-least once and 'a' at-
    least twice. If he sends "ahdvvnxxxautup" to the Land kingdom, he will win them over.
@@ -24,14 +25,44 @@ So if King Shan, sends the message "rozo" to Air, King Shan will receive
 the allegiance from Air. As "rozo" will decrypt to "olwl" and these letters
 contain the emblem characters ‘o’, ’w’, ’l’.
 
-### **Sample input & output **
-<B>Sample Input</B><br>
+### **Sample input & output**
+<ul>
+<li><B>Sample Input</B><br>
 AIR ROZO <br>
 LAND FAIJWJSOOFAMAU<br>
 ICE STHSTSTVSASOS<br>
+<br>
+</li>
 
+<li>
 <B>Sample Output</B><br>
 SPACE AIR LAND ICE
+</li>
+</ul>
+
+# Requirements
+<ul>
+<li>Java 1.8<br></li>
+<li>Gradle 5.1<br></li>
+</ul>
+
+### **How to run the project**
+Extract The TameOfThrones.zip
+```
+cd TameOfThrones
+./gradlew clean build
+```
+
+To run any all the test case in Project
+```
+./gradlew test
+```
+
+After this go inside build/libs folder and run the following command:
+<br>
+```
+java -jar geektrust.jar <absolute_path_to_input_file>
+```
 
 ### **Authors**
 Vaibhav Lodha
