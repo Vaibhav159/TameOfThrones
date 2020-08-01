@@ -42,8 +42,17 @@ class TameOfThroneApplicationTest {
   @Test
   public void testForAlliedRulers() throws IOException {
 
-    String path1 = "src/test/resources/input.txt";
-    TameOfThroneApplication.main(new String[]{path1});
+    String path2 = "src/test/resources/input.txt";
+    TameOfThroneApplication.main(new String[]{path2});
     assertEquals("SPACE AIR LAND ICE\n", outContent.toString());
+  }
+
+  @Test
+  public void testForFileNotFound() throws IOException {
+
+    String path3 = "src/test/resources/input999.txt";
+    //TameOfThroneApplication.main(new String[]{path1});
+    Exception exception = assertThrows(Exception.class,
+        () -> TameOfThroneApplication.main(new String[]{path3}));
   }
 }

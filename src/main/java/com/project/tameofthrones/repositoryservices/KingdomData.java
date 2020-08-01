@@ -7,17 +7,18 @@ import java.util.Map;
 
 public class KingdomData {
 
+  private KingdomRepository kingdomRepository = new KingdomRepository();
+
   public Map<String, Kingdom> generateAllRulers() {
-    KingdomRepository kingdomRepository = new KingdomRepository();
     Map<String, String> kingdomWithAnimal;
     kingdomWithAnimal = kingdomRepository.getRulersWithAnimal();
-    Map<String, Kingdom> rulers = new HashMap<>();
+    Map<String, Kingdom> kingdoms = new HashMap<>();
     for (String emblem : kingdomWithAnimal.keySet()) {
       Kingdom kingdom = new Kingdom(emblem, kingdomWithAnimal.get(emblem));
       kingdom.makeCipherFromAnimalName();
-      rulers.put(emblem, kingdom);
+      kingdoms.put(emblem, kingdom);
     }
-    return rulers;
+    return kingdoms;
   }
 
 }

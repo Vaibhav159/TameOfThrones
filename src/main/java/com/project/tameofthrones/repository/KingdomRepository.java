@@ -7,7 +7,7 @@ public class KingdomRepository {
 
   private Map<String, String> kingdomWithAnimal = new HashMap<>();
 
-  private void setInfoOfAllRulers() {
+  private void setInfoOfAllKingdoms() {
     kingdomWithAnimal.put("SPACE", "GORILLA");
     kingdomWithAnimal.put("LAND", "PANDA");
     kingdomWithAnimal.put("WATER", "OCTOPUS");
@@ -17,24 +17,26 @@ public class KingdomRepository {
   }
 
   public KingdomRepository() {
-    setInfoOfAllRulers();
+    setInfoOfAllKingdoms();
   }
 
   public Map<String, String> getRulersWithAnimal() {
     return kingdomWithAnimal;
   }
 
-  public void addRuler(String ruler, String animal) {
-    kingdomWithAnimal.put(ruler, animal);
+  public void addKingdom(String kingdom, String animal) {
+    kingdomWithAnimal.put(kingdom, animal);
   }
 
-  public void removeRuler(String ruler) {
-    if (kingdomWithAnimal.containsKey(ruler)) {
-      kingdomWithAnimal.remove(ruler);
+  public void removeKingdom(String kingdom) {
+    if (kingdomWithAnimal.containsKey(kingdom)) {
+      kingdomWithAnimal.remove(kingdom);
     }
   }
 
-  public void updateRuler(String ruler, String animal) {
-    addRuler(ruler, animal);
+  public void updateKingdom(String kingdom, String animal) {
+    if (kingdomWithAnimal.containsKey(kingdom)) {
+      addKingdom(kingdom, animal);
+    }
   }
 }
